@@ -3,7 +3,7 @@ package com.trabalho.resources.estruturas;
 
 
 public class LS_Encadeada {
-    Nodo_LS primeiro;
+    public Nodo_LS primeiro;
     
     public LS_Encadeada(){
     
