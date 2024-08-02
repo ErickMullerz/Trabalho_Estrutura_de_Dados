@@ -1,4 +1,4 @@
-package entidades;
+package com.trabalho.resources.entidades;
 
 public class Evento {
     /*

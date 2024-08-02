@@ -1,3 +1,5 @@
+package com.trabalho.resources.entidades;
+
 public class Camera {
     /*
     

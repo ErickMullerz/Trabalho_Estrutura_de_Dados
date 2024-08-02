@@ -1,7 +1,9 @@
-package estruturas;
+package com.trabalho.resources.estruturas;
+
+
 
 public class LS_Encadeada {
-    Nodo primeiro;
+    Nodo_LS primeiro;
     
     public LS_Encadeada(){
     
@@ -9,7 +11,7 @@ public class LS_Encadeada {
     }
     
     public void adicionarElementoInicio(int v){
-        Nodo novo = new Nodo();
+        Nodo_LS novo = new Nodo_LS();
         novo.val = v;
         
         if(primeiro == null){
@@ -21,9 +23,9 @@ public class LS_Encadeada {
         }
     }
 
-    public void excluir(int n, Nodo aux){
+    public void excluir(int n, Nodo_LS aux){
         
-        Nodo ant = null;
+        Nodo_LS ant = null;
         while(aux != null){            
             if(aux.val == n){
                 if(aux == primeiro){
@@ -44,7 +46,7 @@ public class LS_Encadeada {
         
     }
     
-    public void percorrer(Nodo aux){
+    public void percorrer(Nodo_LS aux){
         if(aux != null){
             System.out.print(aux.val + " ");
             percorrer(aux.prox);
