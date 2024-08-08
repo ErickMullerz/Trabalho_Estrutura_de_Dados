@@ -1,7 +1,5 @@
 package com.trabalho.controller;
 
-import java.util.StringTokenizer;
-
 import com.trabalho.resources.estruturas.LS_Encadeada;
 
 public class Main {
