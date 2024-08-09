@@ -16,7 +16,7 @@ public class Main {
         System.out.println(Math.abs("Joao da Silva Santos".hashCode()%13));
         
         arvore = new Arvore_Avl();
-        
+ /*       
         int n = 0;
         while(n<10){
             
@@ -24,7 +24,7 @@ public class Main {
             
           n++; 
         }
-
+ */
         System.out.print("EM : ");
         arvore.exibiremordem(arvore.raiz);
         System.out.println();

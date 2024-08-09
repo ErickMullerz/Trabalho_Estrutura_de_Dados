@@ -4,13 +4,14 @@ public class Arvore_Avl {
 
     public Nodo_avl raiz = null;
     
-    public Nodo_avl inserir(Nodo_avl aux, int num ,  LS_Encadeada list ) {
+    public Nodo_avl inserir(Nodo_avl aux, int num ,  LS_Encadeada list, Hash_Map hash ) {
        
         Nodo_avl novo;
         if (aux == null) 
         {
             novo = new Nodo_avl();
             novo.num = num;
+            novo.hash = hash;
             novo.list = list;
             novo.altd = 0;
             novo.alte = 0;
@@ -20,14 +21,14 @@ public class Arvore_Avl {
         } 
         else if (num < aux.num) 
         {
-            aux.esq = inserir(aux.esq, num, list);
+            aux.esq = inserir(aux.esq, num, list,hash);
             if (aux.esq.altd > aux.esq.alte) {
                 aux.alte = aux.esq.altd + 1;
             } else {
                 aux.alte = aux.esq.alte + 1;
             }
         } else {
-            aux.dir = inserir(aux.dir, num, list);
+            aux.dir = inserir(aux.dir, num, list,hash);
             if (aux.dir.altd > aux.dir.alte) {
                 aux.altd = aux.dir.altd + 1;
             } else {
