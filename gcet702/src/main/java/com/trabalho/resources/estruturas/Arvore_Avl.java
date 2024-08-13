@@ -1,157 +1,128 @@
+
 package com.trabalho.resources.estruturas;
 
-public class Arvore_Avl {
+import com.trabalho.resources.entidades.Evento;
 
-    public Nodo_avl raiz = null;
-    
-    public Nodo_avl inserir(Nodo_avl aux, int num ,  LS_Encadeada list ) {
-       
-        Nodo_avl novo;
-        if (aux == null) 
-        {
-            novo = new Nodo_avl();
-            novo.num = num;
-            novo.list = list;
-            novo.altd = 0;
-            novo.alte = 0;
-            novo.esq = null;
-            novo.dir = null;
-            aux = novo;
-        } 
-        else if (num < aux.num) 
-        {
-            aux.esq = inserir(aux.esq, num, list);
-            if (aux.esq.altd > aux.esq.alte) {
-                aux.alte = aux.esq.altd + 1;
-            } else {
-                aux.alte = aux.esq.alte + 1;
-            }
-        } else {
-            aux.dir = inserir(aux.dir, num, list);
-            if (aux.dir.altd > aux.dir.alte) {
-                aux.altd = aux.dir.altd + 1;
-            } else {
-                aux.altd = aux.dir.alte + 1;
-            }
-        }
-        
-        aux = balanceamento(aux);
-        
-        return aux;
-    }
- 
-    public Nodo_avl balanceamento(Nodo_avl aux) 
-    {
-        int d, df;
-        d = aux.altd - aux.alte;
-        if (d == 2) {
-            df = aux.dir.altd - aux.dir.alte;
-            if (df >= 0) {
-                aux = rotacao_esquerda(aux);
-            } else {
-                aux.dir = rotacao_direita(aux.dir);
-                aux = rotacao_esquerda(aux);
-            }
-        } else if (d == -2) {
-            df = aux.esq.altd - aux.esq.alte;
-            if (df <= 0) {
-                aux = rotacao_direita(aux);
-            } else {
-                aux.esq = rotacao_esquerda(aux.esq);
-                aux = rotacao_direita(aux);
-            }
-        }
-        return aux;
-    }
- 
-    public Nodo_avl rotacao_esquerda(Nodo_avl aux) {
-        
-        Nodo_avl aux1, aux2;
-        aux1 = aux.dir;
-        aux2 = aux1.esq;
-        aux.dir = aux2;
-        aux1.esq = aux;
-        
-        if (aux.dir == null) {
-            aux.altd = 0;
-        } else if (aux.dir.alte > aux.dir.altd) {
-            aux.altd = aux.dir.alte + 1;
-        } else {
-            aux.altd = aux.dir.altd + 1;
-        }
- 
-        if (aux1.esq.alte > aux1.esq.altd) {
-            aux1.alte = aux1.esq.alte + 1;
-        } else {
-            aux1.alte = aux1.esq.altd + 1;
-        }
-        return aux1;
-    }
- 
-    public Nodo_avl rotacao_direita(Nodo_avl aux) {
-        Nodo_avl aux1, aux2;
-        aux1 = aux.esq;
-        aux2 = aux1.dir;
-        aux.esq = aux2;
-        aux1.dir = aux;
-        if (aux.esq == null) {
-            aux.alte = 0;
-        } else if (aux.esq.alte > aux.esq.altd) {
-            aux.alte = aux.esq.alte + 1;
-        } else {
-            aux.alte = aux.esq.altd + 1;
-        }
- 
-        if (aux1.dir.alte > aux1.dir.altd) {
-            aux1.altd = aux1.dir.alte + 1;
-        } else {
-            aux1.altd = aux1.dir.altd + 1;
-        }
-        return aux1;
-    }
- 
-    public void exibiremordem(Nodo_avl aux) {
-        if (aux != null) {
-            exibiremordem(aux.esq);
-            System.out.println(" ");
-            aux.list.percorrer_obj(aux.list.primeiro);
-            exibiremordem(aux.dir);
+public class Arvore_Avl {
+    private class Nodo {
+        Evento evento;
+        Nodo esquerda, direita;
+        int altura;
+
+        Nodo(Evento evento) {
+            this.evento = evento;
+            altura = 1;
         }
     }
- 
-    public void exibirpreordem(Nodo_avl aux) {
-        if (aux != null) {
-            System.out.println(" ");
-            aux.list.percorrer_obj(aux.list.primeiro);
-            exibirpreordem(aux.esq);
-            exibirpreordem(aux.dir);
-        }
+
+    private Nodo raiz;
+
+    public Arvore_Avl() {
+        raiz = null;
     }
- 
-    public void exibirposordem(Nodo_avl aux) {
-        if (aux != null) {
-            exibirposordem(aux.esq);
-            exibirposordem(aux.dir);
-            System.out.println(" ");
-            aux.list.percorrer_obj(aux.list.primeiro);
-            
-        }
+
+    // obter a altura da árvore
+    private int altura(Nodo n) {
+        return n == null ? 0 : n.altura;
     }
- 
-    public int altura(Nodo_avl aux){
-      
-      int altura;  
-      if (aux.altd>aux.alte){
-          altura = aux.altd;
-          System.out.println("Altura da arvore: ");
-          return altura;
-      }
-      else{
-          altura = aux.alte;
-          System.out.println("Altura da arvore: ");
-          
-          return altura;
-          
-      }
+
+    private int max(int a, int b) {
+        return (a > b) ? a : b;
+    }
+
+    // Rotação à direita da subárvore enraizada em y
+    private Nodo rotacaoDireita(Nodo y) {
+        Nodo x = y.esquerda;
+        Nodo T2 = x.direita;
+
+        // rotação
+        x.direita = y;
+        y.esquerda = T2;
+
+        // alturas
+        y.altura = max(altura(y.esquerda), altura(y.direita)) + 1;
+        x.altura = max(altura(x.esquerda), altura(x.direita)) + 1;
+
+        return x;
+    }
+
+    // Rotação à esquerda da subárvore enraizada em x
+    private Nodo rotacaoEsquerda(Nodo x) {
+        Nodo y = x.direita;
+        Nodo T2 = y.esquerda;
+
+        // rotação
+        y.esquerda = x;
+        x.direita = T2;
+
+        // alturas
+        x.altura = max(altura(x.esquerda), altura(x.direita)) + 1;
+        y.altura = max(altura(y.esquerda), altura(y.direita)) + 1;
+
+        return y;
+    }
+
+    // Ofator de balanceamento do nó
+    private int getBalance(Nodo n) {
+        return n == null ? 0 : altura(n.esquerda) - altura(n.direita);
+    }
+
+    // insrir um evento e retornar a nova raiz da subárvore
+    public void inserir(Evento evento) {
+        raiz = inserirRec(raiz, evento);
+    }
+
+    private Nodo inserirRec(Nodo Nodo, Evento evento) {
+        // 1. Inserção
+        if (Nodo == null)
+            return new Nodo(evento);
+
+        if (evento.getDataHora().before(Nodo.evento.getDataHora()))
+            Nodo.esquerda = inserirRec(Nodo.esquerda, evento);
+        else if (evento.getDataHora().after(Nodo.evento.getDataHora()))
+            Nodo.direita = inserirRec(Nodo.direita, evento);
+        else
+            return Nodo;
+
+        // 2. Atualiza a altura deste nó 
+        Nodo.altura = 1 + max(altura(Nodo.esquerda), altura(Nodo.direita));
+
+        // 3. Obtém o fator de balanceamento deste nó para verificar se ele ficou desbalanceado
+        int balanceamento = getBalance(Nodo);
+
+        // Se o nó ficou desbalanceado, existem 4 casos ?
+
+        // Esquerda-Esquerda
+        if (balanceamento > 1 && evento.getDataHora().before(Nodo.esquerda.evento.getDataHora()))
+            return rotacaoDireita(Nodo);
+
+        // Direita-Direita
+        if (balanceamento < -1 && evento.getDataHora().after(Nodo.direita.evento.getDataHora()))
+            return rotacaoEsquerda(Nodo);
+
+        // Esquerda-Direita
+        if (balanceamento > 1 && evento.getDataHora().after(Nodo.esquerda.evento.getDataHora())) {
+            Nodo.esquerda = rotacaoEsquerda(Nodo.esquerda);
+            return rotacaoDireita(Nodo);
+        }
+
+        // Direita-Esquerda
+        if (balanceamento < -1 && evento.getDataHora().before(Nodo.direita.evento.getDataHora())) {
+            Nodo.direita = rotacaoDireita(Nodo.direita);
+            return rotacaoEsquerda(Nodo);
+        }
+        return Nodo;
+    }
+
+    public void mostraArvore() {
+        preOrdenar(raiz);
+    }
+
+    private void preOrdenar(Nodo Nodo) {
+        if (Nodo != null) {
+            System.out.println(Nodo.evento);
+            preOrdenar(Nodo.esquerda);
+            preOrdenar(Nodo.direita);
+        }
     }
 }
