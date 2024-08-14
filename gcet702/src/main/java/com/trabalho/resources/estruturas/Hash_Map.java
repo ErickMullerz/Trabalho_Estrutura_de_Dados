@@ -21,7 +21,7 @@ public class Hash_Map {
             vet[index] = new LS_Encadeada();
         }
         
-        vet[index].adicionarElementoInicio(nome);
+        vet[index].inserirListaObj(nome);
     }
 
     private int calcularIndice(int hash) {
