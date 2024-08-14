@@ -1,5 +1,5 @@
 package com.trabalho.controller;
-
+import com.trabalho.resources.estruturas.Hash_Map;
 import com.trabalho.resources.estruturas.Arvore_Avl;
 import com.trabalho.resources.estruturas.LS_Encadeada;
 
@@ -12,11 +12,11 @@ public class Main {
         lista.percorrer_obj(lista.primeiro);
 
 
-        System.out.println("Joao da Silva Santos".hashCode());
-        System.out.println(Math.abs("Joao da Silva Santos".hashCode()%13));
+        //System.out.println("Joao da Silva Santos".hashCode());
+        //System.out.println(Math.abs("Joao da Silva Santos".hashCode()%13));
         
         arvore = new Arvore_Avl();
- /*       
+        
         int n = 0;
         while(n<10){
             
@@ -24,12 +24,12 @@ public class Main {
             
           n++; 
         }
- */
+
         System.out.print("EM : ");
         arvore.exibiremordem(arvore.raiz);
         System.out.println();
 
-        System.out.print("PRE : ");
+       System.out.print("PRE : ");
         arvore.exibirpreordem(arvore.raiz);
         System.out.println();
 
@@ -37,5 +37,18 @@ public class Main {
         arvore.exibirposordem(arvore.raiz);
         System.out.println();
         System.out.println(arvore.altura(arvore.raiz));
+        
+        Hash_Map hashMap = new Hash_Map(5);
+
+        hashMap.adicionar("Alice");
+        hashMap.adicionar("Bob");
+        hashMap.adicionar("Charlie");
+        hashMap.adicionar("David");
+        hashMap.adicionar("Eve");
+        hashMap.adicionar("Frank");
+
+       
+        System.out.println("\nConteúdo do Hash_Map:");
+        hashMap.percorrer();
     }
 }
