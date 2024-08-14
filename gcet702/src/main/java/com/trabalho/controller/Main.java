@@ -37,5 +37,6 @@ public class Main {
         arvore.exibirposordem(arvore.raiz);
         System.out.println();
         System.out.println(arvore.altura(arvore.raiz));
+        System.out.println("aloo");
     }
 }
