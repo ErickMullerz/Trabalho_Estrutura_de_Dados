@@ -3,12 +3,10 @@ package com.trabalho.resources.entidades;
 import com.trabalho.resources.estruturas.LS_Encadeada;
 
 public class Camera {
-    /*
-    
+    /*   
     Ip
     Latitude e Longitude
     Path da imagem
-
     */
 
     private String ip;
