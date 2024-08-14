@@ -21,7 +21,7 @@ public class Camera {
         this.latitude = latitude;
         this.longitude = longitude;
         this.imagePath = imagePath;
-        LS_Encadeada lissta_camera = new LS_Encadeada();
+        LS_Encadeada lista_camera = new LS_Encadeada();
         lista_camera.inserirListaObj(ip);
         lista_camera.inserirListaObj(latitude);
         lista_camera.inserirListaObj(longitude);
