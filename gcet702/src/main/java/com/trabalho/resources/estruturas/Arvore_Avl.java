@@ -202,7 +202,19 @@ public class Arvore_Avl {
         if (aux != null) {
             exibiremordem(aux.esq);
             System.out.println(" ");
+            System.out.println("");
+            System.out.println("Horario: " + aux.data_horario);
+            System.out.println(" ");
             aux.list.percorrer_obj(aux.list.primeiro);
+            System.out.println(" ");
+            if(aux.list_carro!=null){
+                aux.list_carro.percorrer_obj(aux.list_carro.primeiro);
+            }
+            
+            System.out.println("");
+            if(aux.hash!=null){
+                aux.hash.percorrer();    
+            }
             exibiremordem(aux.dir);
         }
     }
@@ -210,8 +222,19 @@ public class Arvore_Avl {
     public void exibirpreordem(Nodo_avl aux) {
         if (aux != null) {
             System.out.println(" ");
+            System.out.println("");
+            System.out.println("Horario: " + aux.data_horario);
+            System.out.println(" ");
             aux.list.percorrer_obj(aux.list.primeiro);
-
+            System.out.println(" ");
+            if(aux.list_carro!=null){
+                aux.list_carro.percorrer_obj(aux.list_carro.primeiro);
+            }
+            
+            System.out.println("");
+            if(aux.hash!=null){
+                aux.hash.percorrer();    
+            }
             exibirpreordem(aux.esq);
             exibirpreordem(aux.dir);
         }
@@ -222,6 +245,7 @@ public class Arvore_Avl {
 
             exibirposordem(aux.esq);
             exibirposordem(aux.dir);
+            System.out.println("");
             System.out.println("Horario: " + aux.data_horario);
             System.out.println(" ");
             aux.list.percorrer_obj(aux.list.primeiro);
