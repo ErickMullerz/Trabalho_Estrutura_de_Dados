@@ -2,6 +2,14 @@
 
 package com.trabalho.controller;
 import com.trabalho.resources.estruturas.Hash_Map;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+import javax.swing.text.DateFormatter;
+
 import com.trabalho.resources.entidades.Camera;
 import com.trabalho.resources.entidades.Carro;
 import com.trabalho.resources.entidades.Pessoa;
@@ -17,9 +25,7 @@ public class Main {
         lista.inserirListaObj("casa");     
         
 
-        //System.out.println("Joao da Silva Santos".hashCode());
-        //System.out.println(Math.abs("Joao da Silva Santos".hashCode()%13));
-        
+        LocalDateTime hour = LocalDateTime.now();
         arvore = new Arvore_Avl();
         
         int n = 0;
@@ -30,7 +36,7 @@ public class Main {
 
         while(n<10){
             
-          arvore.raiz = arvore.inserir(arvore.raiz, n,c.getLista_Camera(),p.getHash_pessoa(),car.getLista_carro());
+          arvore.raiz = arvore.inserir(arvore.raiz, hour,c.getLista_Camera(),p.getHash_pessoa(),car.getLista_carro());
             
           n++; 
         }
@@ -46,6 +52,11 @@ public class Main {
         System.out.print("POS : ");
         arvore.exibirposordem(arvore.raiz);
         System.out.println();
+
+        
+        
+       
+       
       
     }
   }

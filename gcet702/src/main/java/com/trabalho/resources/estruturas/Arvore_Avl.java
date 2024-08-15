@@ -1,16 +1,24 @@
 package com.trabalho.resources.estruturas;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 public class Arvore_Avl {
 
     public Nodo_avl raiz = null;
     
-    public Nodo_avl inserir(Nodo_avl aux, int num ,  LS_Encadeada list, Hash_Map hash ) {
+    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+
+    public Nodo_avl inserir(Nodo_avl aux, LocalDateTime num ,  LS_Encadeada list, Hash_Map hash ) {
        //Evento com Pessoa
         Nodo_avl novo;
         if (aux == null) 
         {
             novo = new Nodo_avl();
-            novo.num = num;
+            novo.data_horario = num.format(myFormatObj);
+            novo.num = num.getMinute();
             novo.hash = hash;
             novo.list = list;
             novo.altd = 0;
@@ -19,7 +27,7 @@ public class Arvore_Avl {
             novo.dir = null;
             aux = novo;
         } 
-        else if (num < aux.num) 
+        else if (num.getMinute() < aux.num) 
         {
             aux.esq = inserir(aux.esq, num, list,hash);
             if (aux.esq.altd > aux.esq.alte) {
@@ -41,13 +49,14 @@ public class Arvore_Avl {
         return aux;
     }
     
-    public Nodo_avl inserir(Nodo_avl aux, int num ,  LS_Encadeada list, LS_Encadeada list_carro ) {
+    public Nodo_avl inserir(Nodo_avl aux, LocalDateTime num ,  LS_Encadeada list, LS_Encadeada list_carro ) {
         //Evento com carro
          Nodo_avl novo;
          if (aux == null) 
          {
              novo = new Nodo_avl();
-             novo.num = num;
+             novo.data_horario = num.format(myFormatObj);
+             novo.num = num.getMinute();
              novo.list = list;
              novo.list_carro = list_carro;
              novo.altd = 0;
@@ -56,7 +65,7 @@ public class Arvore_Avl {
              novo.dir = null;
              aux = novo;
          } 
-         else if (num < aux.num) 
+         else if (num.getMinute() < aux.num) 
          {
              aux.esq = inserir(aux.esq, num, list,list_carro);
              if (aux.esq.altd > aux.esq.alte) {
@@ -80,13 +89,14 @@ public class Arvore_Avl {
 
 
     
-    public Nodo_avl inserir(Nodo_avl aux, int num ,  LS_Encadeada list, Hash_Map hash ,LS_Encadeada list_carro ) {
+    public Nodo_avl inserir(Nodo_avl aux, LocalDateTime num ,  LS_Encadeada list, Hash_Map hash ,LS_Encadeada list_carro ) {
        //Evento com Pessoa e Carro
         Nodo_avl novo;
         if (aux == null) 
         {
             novo = new Nodo_avl();
-            novo.num = num;
+            novo.data_horario = num.format(myFormatObj);
+            novo.num = num.getMinute();
             novo.list = list;
             novo.hash = hash;
             novo.list_carro = list_carro;
@@ -96,7 +106,7 @@ public class Arvore_Avl {
             novo.dir = null;
             aux = novo;
         } 
-        else if (num < aux.num) 
+        else if (num.getMinute() < aux.num) 
         {
             aux.esq = inserir(aux.esq, num, list,hash,list_carro);
             if (aux.esq.altd > aux.esq.alte) {
@@ -212,6 +222,7 @@ public class Arvore_Avl {
 
             exibirposordem(aux.esq);
             exibirposordem(aux.dir);
+            System.out.println("Horario: " + aux.data_horario);
             System.out.println(" ");
             aux.list.percorrer_obj(aux.list.primeiro);
             System.out.println(" ");
