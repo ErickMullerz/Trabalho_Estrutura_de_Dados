@@ -1,7 +1,9 @@
+
+
 package com.trabalho.resources.entidades;
 
 import com.trabalho.resources.estruturas.Hash_Map;
-import com.trabalho.resources.estruturas.LS_Encadeada;
+
 
 public class Pessoa {
     /*
@@ -11,11 +13,10 @@ public class Pessoa {
     private String nome;
     private String matricula;  
     private TipoPessoa tipo;
-    private Hash_Map hash_pessoa;
+    private Hash_Map hash_pessoa = new Hash_Map(5);
 
-    public Hash_Map getHash_pessoa() {
-        return hash_pessoa;
-    }
+    
+    
 
     public enum TipoPessoa {
         DOCENTE, DISCENTE, FUNCIONARIO, DESCONHECIDO
@@ -26,7 +27,7 @@ public class Pessoa {
         this.matricula = matricula;
         this.tipo = tipo;
 
-       
+       Hash_Pessoa();
 
 
 
@@ -62,15 +63,26 @@ public class Pessoa {
         this.tipo = tipo;
     }
 
-    public void createHash(){
+    public void Hash_Pessoa() {
 
-        Hash_Map hash_pessoa = new Hash_Map(5);
-        hash_pessoa.adicionar(this.nome);
-        hash_pessoa.adicionar(this.matricula);
-        hash_pessoa.adicionar(this.tipo.toString());
-
- 
+        hash_pessoa.adicionar( this.nome);
+        hash_pessoa.adicionar( this.matricula);
+        hash_pessoa.adicionar( this.tipo.toString());
+        
+        
+        
     }
+
+    
+
+    public Hash_Map getHash_pessoa() {
+        return hash_pessoa;
+    }
+
+    public void setHash_pessoa(Hash_Map hash_pessoa) {
+        this.hash_pessoa = hash_pessoa;
+    }
+
 
     @Override
     public String toString() {

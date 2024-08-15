@@ -75,10 +75,11 @@ public class LS_Encadeada {
         }
     
     }
+
     public void percorrer_obj(Nodo_LS aux){
         if(aux != null){
             System.out.print(aux.obj + " ");
-            percorrer(aux.prox);
+            percorrer_obj(aux.prox);
         }
     
     }

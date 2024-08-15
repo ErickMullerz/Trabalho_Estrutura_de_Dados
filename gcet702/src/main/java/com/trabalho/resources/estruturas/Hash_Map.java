@@ -42,15 +42,18 @@ public class Hash_Map {
 
     public void percorrer() {
         for (int i = 0; i < getTam(); i++) {
-            System.out.println("Index: " + i);
+ ///           System.out.println("Index: " + i);
             LS_Encadeada l = getVet()[i];
-            if (l != null) {
-                System.out.println("Qtd elementos: " + l.getQtd());
+           
+            if (l != null ) {
+//              System.out.println("Qtd elementos: " + l.getQtd());
                 l.percorrer_obj(l.getPrimeiro());
             } else {
-                System.out.println("Vazio");
+//                System.out.println("Vazio");
             }
             System.out.println();
         }
     }
 }
+
+

@@ -135,6 +135,7 @@ public class Arvore_Avl {
             exibirposordem(aux.dir);
             System.out.println(" ");
             aux.list.percorrer_obj(aux.list.primeiro);
+            System.out.println("");
             aux.hash.percorrer();
             
         }

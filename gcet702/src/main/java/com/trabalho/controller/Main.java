@@ -1,3 +1,5 @@
+
+
 package com.trabalho.controller;
 import com.trabalho.resources.estruturas.Hash_Map;
 import com.trabalho.resources.entidades.Pessoa;
@@ -11,8 +13,7 @@ public class Main {
         LS_Encadeada lista = new LS_Encadeada();
         
         lista.inserirListaObj("casa");     
-        lista.percorrer_obj(lista.primeiro);
-
+        
 
         //System.out.println("Joao da Silva Santos".hashCode());
         //System.out.println(Math.abs("Joao da Silva Santos".hashCode()%13));
@@ -21,19 +22,15 @@ public class Main {
         
         int n = 0;
         
-        Pessoa p = new Pessoa( "Alice" , "48464846", TipoPessoa.DESCONHECIDO);
-        Hash_Map hashMap = new Hash_Map(5);
+        Pessoa p = new Pessoa("Alice","566161",TipoPessoa.DISCENTE);
 
-        hashMap.adicionar("Alice");
-        hashMap.adicionar("Bob");
-        hashMap.adicionar("Charlie");
-        hashMap.adicionar("David");
-        hashMap.adicionar("Eve");
-        hashMap.adicionar("Frank");
+        LS_Encadeada h = new LS_Encadeada();
+        h.inserirListaObj("z");
+        h.inserirListaObj("p");
+        h.percorrer_obj(h.primeiro);
 
-       
-        System.out.println("\nConteúdo do Hash_Map:");
-        hashMap.percorrer();
+        
+
         while(n<10){
             
           arvore.raiz = arvore.inserir(arvore.raiz, n,lista,p.getHash_pessoa());
@@ -52,7 +49,6 @@ public class Main {
         System.out.print("POS : ");
         arvore.exibirposordem(arvore.raiz);
         System.out.println();
-        System.out.println(arvore.altura(arvore.raiz));
-        
+      
     }
   }
