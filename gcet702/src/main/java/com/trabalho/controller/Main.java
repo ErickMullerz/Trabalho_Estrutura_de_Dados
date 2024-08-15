@@ -3,6 +3,7 @@
 package com.trabalho.controller;
 import com.trabalho.resources.estruturas.Hash_Map;
 import com.trabalho.resources.entidades.Camera;
+import com.trabalho.resources.entidades.Carro;
 import com.trabalho.resources.entidades.Pessoa;
 import com.trabalho.resources.entidades.Pessoa.TipoPessoa;
 import com.trabalho.resources.estruturas.Arvore_Avl;
@@ -24,11 +25,11 @@ public class Main {
         int n = 0;
         
         Pessoa p = new Pessoa("Alice","566161",TipoPessoa.DISCENTE);
-        Camera c = new Camera("000000000000", "12°39'50.4''S", "39°05'59.8''W", "C:\\Users\\UFRB\\OneDrive\\Imagens\\Cam");
-
+        Camera c = new Camera("000000000000", "12°39'50.4''S", "39°05'59.8''W", "C:\\Users\\UFRB\\OneDrive\\imagens\\Cam");
+        Carro car = new Carro("X4861515", false);
         while(n<10){
             
-          arvore.raiz = arvore.inserir(arvore.raiz, n,c.getLista_Camera(),p.getHash_pessoa());
+          arvore.raiz = arvore.inserir(arvore.raiz, n,c.getLista_Camera(),p.getHash_pessoa(),car.getLista_carro());
             
           n++; 
         }

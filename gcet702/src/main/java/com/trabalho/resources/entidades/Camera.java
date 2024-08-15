@@ -65,6 +65,7 @@ public class Camera {
     }
 
     public void Lista_Camera(){
+        lista_camera.inserirListaObj("Camera: ");
         lista_camera.inserirListaObj("IP: " + this.ip);
         lista_camera.inserirListaObj("Latitude: " + this.latitude);
         lista_camera.inserirListaObj("Longitude: " + this.longitude);

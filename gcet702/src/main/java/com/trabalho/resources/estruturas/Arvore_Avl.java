@@ -41,7 +41,7 @@ public class Arvore_Avl {
         return aux;
     }
     
-    public Nodo_avl inserir(Nodo_avl aux, int num ,  LS_Encadeada list,LS_Encadeada list_carro ) {
+    public Nodo_avl inserir(Nodo_avl aux, int num ,  LS_Encadeada list, LS_Encadeada list_carro ) {
         //Evento com carro
          Nodo_avl novo;
          if (aux == null) 
@@ -49,7 +49,7 @@ public class Arvore_Avl {
              novo = new Nodo_avl();
              novo.num = num;
              novo.list = list;
-             novo.list = list_carro;
+             novo.list_carro = list_carro;
              novo.altd = 0;
              novo.alte = 0;
              novo.esq = null;
@@ -89,7 +89,7 @@ public class Arvore_Avl {
             novo.num = num;
             novo.list = list;
             novo.hash = hash;
-            novo.list = list_carro;
+            novo.list_carro = list_carro;
             novo.altd = 0;
             novo.alte = 0;
             novo.esq = null;
@@ -201,6 +201,7 @@ public class Arvore_Avl {
         if (aux != null) {
             System.out.println(" ");
             aux.list.percorrer_obj(aux.list.primeiro);
+
             exibirpreordem(aux.esq);
             exibirpreordem(aux.dir);
         }
@@ -208,12 +209,21 @@ public class Arvore_Avl {
  
     public void exibirposordem(Nodo_avl aux) {
         if (aux != null) {
+
             exibirposordem(aux.esq);
             exibirposordem(aux.dir);
             System.out.println(" ");
             aux.list.percorrer_obj(aux.list.primeiro);
+            System.out.println(" ");
+            if(aux.list_carro!=null){
+                aux.list_carro.percorrer_obj(aux.list_carro.primeiro);
+            }
+            
             System.out.println("");
-            aux.hash.percorrer();
+            if(aux.hash!=null){
+                aux.hash.percorrer();    
+            }
+            
             
         }
     }
