@@ -10,20 +10,18 @@ public class Camera {
     */
 
     private String ip;
-    private double latitude;
-    private double longitude;
+    private String latitude;
+    private String longitude;
     private String imagePath;
+    private LS_Encadeada lista_camera = new LS_Encadeada();
 
-    public Camera(String ip, double latitude, double longitude, String imagePath) {
+    public Camera(String ip, String latitude, String longitude, String imagePath) {
         this.ip = ip;
         this.latitude = latitude;
         this.longitude = longitude;
         this.imagePath = imagePath;
-        LS_Encadeada lista_camera = new LS_Encadeada();
-        lista_camera.inserirListaObj(ip);
-        lista_camera.inserirListaObj(latitude);
-        lista_camera.inserirListaObj(longitude);
-        lista_camera.inserirListaObj(imagePath);
+
+        Lista_Camera();
     }
 
     public String getIp() {
@@ -34,19 +32,19 @@ public class Camera {
         this.ip = ip;
     }
 
-    public double getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public double getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 
@@ -57,6 +55,22 @@ public class Camera {
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
     }
+
+    public LS_Encadeada getLista_Camera() {
+        return lista_camera;
+    }
+
+    public void setLista_Camera(LS_Encadeada lista_Camera) {
+        this.lista_camera = lista_Camera;
+    }
+
+    public void Lista_Camera(){
+        lista_camera.inserirListaObj("IP: " + this.ip);
+        lista_camera.inserirListaObj("Latitude: " + this.latitude);
+        lista_camera.inserirListaObj("Longitude: " + this.longitude);
+        lista_camera.inserirListaObj("Path da Imagem: " + this.imagePath);
+    }
+    
 
     
     @Override
