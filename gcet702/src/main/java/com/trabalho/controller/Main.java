@@ -18,9 +18,23 @@ public class Main {
         arvore = new Arvore_Avl();
         
         int n = 0;
+        
+
+        Hash_Map hashMap = new Hash_Map(5);
+
+        hashMap.adicionar("Alice");
+        hashMap.adicionar("Bob");
+        hashMap.adicionar("Charlie");
+        hashMap.adicionar("David");
+        hashMap.adicionar("Eve");
+        hashMap.adicionar("Frank");
+
+       
+        System.out.println("\nConteúdo do Hash_Map:");
+        hashMap.percorrer();
         while(n<10){
             
-          arvore.raiz = arvore.inserir(arvore.raiz, n,lista);
+          arvore.raiz = arvore.inserir(arvore.raiz, n,lista,hashMap);
             
           n++; 
         }
@@ -38,17 +52,5 @@ public class Main {
         System.out.println();
         System.out.println(arvore.altura(arvore.raiz));
         
-        Hash_Map hashMap = new Hash_Map(5);
-
-        hashMap.adicionar("Alice");
-        hashMap.adicionar("Bob");
-        hashMap.adicionar("Charlie");
-        hashMap.adicionar("David");
-        hashMap.adicionar("Eve");
-        hashMap.adicionar("Frank");
-
-       
-        System.out.println("\nConteúdo do Hash_Map:");
-        hashMap.percorrer();
     }
-}
+  }
