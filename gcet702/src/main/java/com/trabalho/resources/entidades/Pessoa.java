@@ -11,6 +11,11 @@ public class Pessoa {
     private String nome;
     private String matricula;  
     private TipoPessoa tipo;
+    private Hash_Map hash_pessoa;
+
+    public Hash_Map getHash_pessoa() {
+        return hash_pessoa;
+    }
 
     public enum TipoPessoa {
         DOCENTE, DISCENTE, FUNCIONARIO, DESCONHECIDO
@@ -21,12 +26,7 @@ public class Pessoa {
         this.matricula = matricula;
         this.tipo = tipo;
 
-        Hash_Map hash_pessoa = new Hash_Map(5);
-        hash_pessoa.adicionar(nome);
-        hash_pessoa.adicionar(matricula);
-        hash_pessoa.adicionar(tipo.toString());
-
-
+       
 
 
 
@@ -60,6 +60,16 @@ public class Pessoa {
 
     public void setTipo(TipoPessoa tipo) {
         this.tipo = tipo;
+    }
+
+    public void createHash(){
+
+        Hash_Map hash_pessoa = new Hash_Map(5);
+        hash_pessoa.adicionar(this.nome);
+        hash_pessoa.adicionar(this.matricula);
+        hash_pessoa.adicionar(this.tipo.toString());
+
+ 
     }
 
     @Override

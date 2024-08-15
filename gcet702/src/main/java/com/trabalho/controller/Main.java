@@ -1,5 +1,7 @@
 package com.trabalho.controller;
 import com.trabalho.resources.estruturas.Hash_Map;
+import com.trabalho.resources.entidades.Pessoa;
+import com.trabalho.resources.entidades.Pessoa.TipoPessoa;
 import com.trabalho.resources.estruturas.Arvore_Avl;
 import com.trabalho.resources.estruturas.LS_Encadeada;
 
@@ -19,7 +21,7 @@ public class Main {
         
         int n = 0;
         
-
+        Pessoa p = new Pessoa( "Alice" , "48464846", TipoPessoa.DESCONHECIDO);
         Hash_Map hashMap = new Hash_Map(5);
 
         hashMap.adicionar("Alice");
@@ -34,7 +36,7 @@ public class Main {
         hashMap.percorrer();
         while(n<10){
             
-          arvore.raiz = arvore.inserir(arvore.raiz, n,lista,hashMap);
+          arvore.raiz = arvore.inserir(arvore.raiz, n,lista,p.getHash_pessoa());
             
           n++; 
         }
