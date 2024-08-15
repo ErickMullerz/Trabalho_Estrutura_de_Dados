@@ -3,6 +3,8 @@ package com.trabalho.resources.estruturas;
 public class Hash_Map {
     private int tam;
     private LS_Encadeada[] vet;
+    private String count = null;
+
 
     public Hash_Map(int tam) {
         System.out.println("Hash tamanho " + tam);
@@ -42,17 +44,26 @@ public class Hash_Map {
 
     public void percorrer() {
         for (int i = 0; i < getTam(); i++) {
- ///           System.out.println("Index: " + i);
+  //          System.out.println("Index: " + i);
             LS_Encadeada l = getVet()[i];
            
             if (l != null ) {
-//              System.out.println("Qtd elementos: " + l.getQtd());
-                l.percorrer_obj(l.getPrimeiro());
+                if(count != null){
+              
+             }
+                else{
+                    System.out.println("Pessoa: ");
+                    count = "";
+             }
+                
+   //           System.out.println("Qtd elementos: " + l.getQtd());
+              l.percorrer_obj(l.getPrimeiro());
             } else {
-//                System.out.println("Vazio");
+   //             System.out.println("Vazio");
             }
-            System.out.println();
-        }
+            }
+
+            count=null;
     }
 }
 

@@ -48,10 +48,10 @@ public class Carro {
         lista_carro.inserirListaObj("Placa: " + this.placa);
         System.out.println("");
         if(!registrado){
-            lista_carro.inserirListaObj(" Não Registrado");
+            lista_carro.inserirListaObj("Não Registrado");
         }
         else{
-            lista_carro.inserirListaObj(" Registrado");
+            lista_carro.inserirListaObj("Registrado");
         }
     
     }
