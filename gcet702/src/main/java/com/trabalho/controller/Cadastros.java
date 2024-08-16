@@ -154,5 +154,14 @@ public class Cadastros {
 
     };
 
-    
+    public String busca_nome(String nome){
+        int n = 0;
+        while(n<pessoas.length){
+            if(pessoas[n][1]==nome){
+                return pessoas[n][3];
+            }
+        }
+        return "Desconhecido";
+
+    }
 }
