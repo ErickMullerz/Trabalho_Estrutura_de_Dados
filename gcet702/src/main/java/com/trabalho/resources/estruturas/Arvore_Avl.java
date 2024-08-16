@@ -19,7 +19,7 @@ public class Arvore_Avl {
             novo = new Nodo_avl();
             novo.evento = evento;
             novo.data_horario = num.format(myFormatObj);
-            novo.num = num.getMinute();
+            novo.num = num.getSecond();
             novo.hash = hash;
             novo.list = list;
             novo.altd = 0;
@@ -58,7 +58,7 @@ public class Arvore_Avl {
              novo = new Nodo_avl();
              novo.evento = evento;
              novo.data_horario = num.format(myFormatObj);
-             novo.num = num.getMinute();
+             novo.num = num.getSecond();
              novo.list = list;
              novo.list_carro = list_carro;
              novo.altd = 0;
@@ -99,7 +99,7 @@ public class Arvore_Avl {
             novo = new Nodo_avl();
             novo.evento = evento;
             novo.data_horario = num.format(myFormatObj);
-            novo.num = num.getMinute();
+            novo.num = num.getSecond();
             novo.list = list;
             novo.hash = hash;
             novo.list_carro = list_carro;
