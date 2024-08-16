@@ -39,4 +39,5 @@ public class Evento {
     public void setEvento(boolean evento) {
         this.evento = evento;
     }
+
 }
