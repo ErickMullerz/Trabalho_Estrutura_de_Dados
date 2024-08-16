@@ -1,6 +1,6 @@
 package com.trabalho.resources.estruturas;
 
-import java.time.LocalDateTime;
+
 
 public class Nodo_avl {
     
@@ -10,5 +10,6 @@ public class Nodo_avl {
     public LS_Encadeada list_carro;
     public Nodo_avl dir, esq;  
     public String data_horario; 
+    public String evento;
     
 }

@@ -12,6 +12,7 @@ import javax.swing.text.DateFormatter;
 
 import com.trabalho.resources.entidades.Camera;
 import com.trabalho.resources.entidades.Carro;
+import com.trabalho.resources.entidades.Evento;
 import com.trabalho.resources.entidades.Pessoa;
 import com.trabalho.resources.entidades.Pessoa.TipoPessoa;
 import com.trabalho.resources.estruturas.Arvore_Avl;
@@ -33,10 +34,11 @@ public class Main {
         Pessoa p = new Pessoa("Alice","566161",TipoPessoa.DISCENTE);
         Camera c = new Camera("000000000000", "12°39'50.4''S", "39°05'59.8''W", "C:\\Users\\UFRB\\OneDrive\\imagens\\Cam");
         Carro car = new Carro("X4861515", false);
+        Evento e = new Evento(false, hour);
 
         while(n<10){
             
-          arvore.raiz = arvore.inserir(arvore.raiz, hour,c.getLista_Camera(),p.getHash_pessoa(),car.getLista_carro());
+          arvore.raiz = arvore.inserir(arvore.raiz,e.getEvento(),e.getHorario() ,c.getLista_Camera(),p.getHash_pessoa(),car.getLista_carro());
             
           n++; 
         }
