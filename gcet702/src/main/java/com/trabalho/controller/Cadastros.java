@@ -3,8 +3,9 @@ package com.trabalho.controller;
 public class Cadastros {
 
     public String[][] pessoas = {
+    {"Clara Cerqueira falcao", "9048204474", "Discente"},    
     {"Joao da silva santos", "3025204078", "Discente"},
-    {"Clara Cerqueira falcao", "9048204474", "Discente"},
+    
     {"Mariana Oliveira Souza", "5182036579", "Discente"},
     {"Lucas Ferreira Alves", "7239485061", "Discente"},
     {"Fernanda Lima Rodrigues", "6352041987", "Discente"},
@@ -157,11 +158,42 @@ public class Cadastros {
     public String busca_nome(String nome){
         int n = 0;
         while(n<pessoas.length){
-            if(pessoas[n][1]==nome){
-                return pessoas[n][3];
+            if(pessoas[n][0]==nome){
+                return  pessoas[n][2];
+                
             }
+            n++;
         }
         return "Desconhecido";
+
+    }
+
+   
+    public String busca_matricula(String nome){
+        int n = 0;
+        while(n<pessoas.length){
+            if(pessoas[n][0]==nome){
+                return  pessoas[n][1];
+            }
+            n++;
+        }
+        return "";
+
+    }
+ 
+
+
+
+
+
+    public String busca_placa(String placa){
+        int n = 0;
+        while(n<carros.length){
+            if(carros[n]==placa){
+                return  carros[n];
+            }
+        }
+        return "Não Cadastrado";
 
     }
 }

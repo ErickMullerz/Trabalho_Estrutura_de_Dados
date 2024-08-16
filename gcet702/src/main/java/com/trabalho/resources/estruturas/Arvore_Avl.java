@@ -131,6 +131,46 @@ public class Arvore_Avl {
         return aux;
     } 
 
+    public Nodo_avl inserir_nome(Nodo_avl aux,String evento, LocalDateTime num ,  LS_Encadeada list, Hash_Map hash ) {
+        //Evento com Pessoa
+         Nodo_avl novo;
+         if (aux == null) 
+         {
+             novo = new Nodo_avl();
+             novo.evento = evento;
+             novo.data_horario = num.format(myFormatObj);
+             novo.num = num.getSecond();
+             novo.hash = hash;
+             novo.list = list;
+             novo.altd = 0;
+             novo.alte = 0;
+             novo.esq = null;
+             novo.dir = null;
+             aux = novo;
+         } 
+         else if (num.getMinute() < aux.num) 
+         {
+             aux.esq = inserir(aux.esq,evento, num, list,hash);
+             if (aux.esq.altd > aux.esq.alte) {
+                 aux.alte = aux.esq.altd + 1;
+             } else {
+                 aux.alte = aux.esq.alte + 1;
+             }
+         } else {
+             aux.dir = inserir(aux.dir,evento, num, list,hash);
+             if (aux.dir.altd > aux.dir.alte) {
+                 aux.altd = aux.dir.altd + 1;
+             } else {
+                 aux.altd = aux.dir.alte + 1;
+             }
+         }
+         
+         aux = balanceamento(aux);
+         
+         return aux;
+     }
+     
+
     public Nodo_avl balanceamento(Nodo_avl aux) 
     {
         int d, df;

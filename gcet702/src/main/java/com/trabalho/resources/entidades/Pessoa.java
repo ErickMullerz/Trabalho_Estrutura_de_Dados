@@ -2,10 +2,11 @@
 
 package com.trabalho.resources.entidades;
 
+import com.trabalho.controller.Cadastros;
 import com.trabalho.resources.estruturas.Hash_Map;
 
 
-public class Pessoa {
+public class Pessoa extends Cadastros{
     /*
     Docente|Discente|Funcionario|Desconhecido
     Matricula
@@ -27,7 +28,7 @@ public class Pessoa {
         this.matricula = matricula;
         this.tipo = tipo;
 
-       Hash_Pessoa();
+        Hash_Pessoa();
 
 
 
@@ -35,8 +36,12 @@ public class Pessoa {
 
     public Pessoa(String nome) {
         this.nome = nome;
-        this.tipo = TipoPessoa.DESCONHECIDO;
-        this.matricula = null;
+        
+        this.tipo = TipoPessoa.valueOf(busca_nome(nome).toUpperCase());
+        this.matricula = busca_matricula(nome);
+
+        Hash_Pessoa();
+
     }
 
     public String getNome() {
@@ -67,7 +72,7 @@ public class Pessoa {
 
         hash_pessoa.adicionar( this.nome);
         hash_pessoa.adicionar( this.matricula);
-        hash_pessoa.adicionar( this.tipo.toString());
+        hash_pessoa.adicionar( this.tipo.toString().toLowerCase());
         
         
         

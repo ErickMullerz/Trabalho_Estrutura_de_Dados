@@ -35,13 +35,15 @@ public class Main {
         Camera c = new Camera("000000000000", "12°39'50.4''S", "39°05'59.8''W", "C:\\Users\\UFRB\\OneDrive\\imagens\\Cam");
         Carro car = new Carro("X4861515", false);
         Evento e = new Evento(false, hour);
+        Pessoa p_nome = new Pessoa("Camila Pereira Souza");
 
         while(n<10){
             
-          arvore.raiz = arvore.inserir(arvore.raiz,e.getEvento(),e.getHorario() ,c.getLista_Camera(),p.getHash_pessoa(),car.getLista_carro());
+          arvore.raiz = arvore.inserir(arvore.raiz,e.getEvento(),e.getHorario() ,c.getLista_Camera(),p_nome.getHash_pessoa());
             
           n++; 
         }
+        
 
         System.out.print("EM : ");
         arvore.exibiremordem(arvore.raiz);
