@@ -156,9 +156,9 @@ public class Cadastros {
     };
 
     public String[][] cameras = {
-        {"Camera_Portao_1","12°39'50.4''S", "39°05'59.8''W"},
-        {"Camera_Portao_2","12°39'24.3", "39°05'54.7''W"},
-        {"Camera_Portao_3","12°39'47.6''S", "39°04'57.2''W"}
+        {"Camera_Portao_1","12°39'50.4''S", "39°05'59.8''W","192.155.1.00"},
+        {"Camera_Portao_2","12°39'24.3", "39°05'54.7''W","193.156.1.01"},
+        {"Camera_Portao_3","12°39'47.6''S", "39°04'57.2''W","194.157.2.02"}
     };
 
     public String busca_nome(String nome){
@@ -207,11 +207,33 @@ public class Cadastros {
 
     }
 
-    public String busca_latitude(String ip){
+    public String busca_nomeCameralatitude(String nome){
         int n = 0;
         while(n<cameras.length){
-            if(cameras[n][1]==ip){
-                return cameras[n][0];
+            if(cameras[n][0]==nome){
+                return cameras[n][1];
+            }
+            n++;
+        }
+        return "";
+    }
+
+    public String busca_nomeCameralongitude(String nome){
+        int n = 0;
+        while(n<cameras.length){
+            if(cameras[n][0]==nome){
+                return cameras[n][2];
+            }
+            n++;
+        }
+        return "";
+    }
+
+    public String busca_nomeCameraip(String nome){
+        int n = 0;
+        while(n<cameras.length){
+            if(cameras[n][0]==nome){
+                return cameras[n][3];
             }
             n++;
         }

@@ -23,12 +23,12 @@ public class Camera extends Cadastros{
     DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("ddMMyyyy_HHmmss");
 
 
-    public Camera(String ip, String latitude, String longitude) {
+    public Camera(String nome) {
         LocalDateTime h = LocalDateTime.now();
-        this.ip = ip;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.imagePath = "C:\\Users\\UFRB\\OneDrive\\imagens\\"+ busca_latitude(latitude)+"_"+ h.format(myFormatObj)+".jpg";
+        this.ip = busca_nomeCameraip(nome);
+        this.latitude = busca_nomeCameralatitude(nome);
+        this.longitude = busca_nomeCameralongitude(nome);
+        this.imagePath = "C:\\Users\\UFRB\\OneDrive\\imagens\\"+ nome +"_"+ h.format(myFormatObj)+".jpg";
 
         Lista_Camera();
     }
