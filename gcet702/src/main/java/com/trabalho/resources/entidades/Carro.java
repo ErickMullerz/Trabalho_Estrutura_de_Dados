@@ -1,8 +1,9 @@
 package com.trabalho.resources.entidades;
 
+import com.trabalho.controller.Cadastros;
 import com.trabalho.resources.estruturas.LS_Encadeada;
 
-public class Carro {
+public class Carro extends Cadastros{
     /*
     Cadastrado|Não Cadastrado
     */

@@ -34,6 +34,7 @@ public class Main {
         Pessoa p = new Pessoa("Alice","566161",TipoPessoa.DISCENTE);
         Camera c = new Camera("000000000000", "12°39'50.4''S", "39°05'59.8''W", "C:\\Users\\UFRB\\OneDrive\\imagens\\Cam");
         Carro car = new Carro("X4861515", false);
+        Carro carro = new Carro("QWE3I63");
         Evento e = new Evento(false, hour);
         Pessoa p_nome = new Pessoa("Camila Pereira Souza");
 
