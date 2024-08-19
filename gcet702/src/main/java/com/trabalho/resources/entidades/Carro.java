@@ -17,6 +17,14 @@ public class Carro {
         Lista_Carro();
     }
 
+    public Carro(String placa) {
+        this.placa = placa;
+        
+        this.registrado = busca_placa(placa);
+
+        Lista_Carro();
+    }
+
     public String getPlaca() {
         return placa;
     }

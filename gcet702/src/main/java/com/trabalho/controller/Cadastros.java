@@ -186,16 +186,16 @@ public class Cadastros {
 
 
 
-    public String busca_placa(String placa){
+    public boolean busca_placa(String placa){
         int n = 0;
         while(n<carros.length){
             if(carros[n]==placa){
-                return  carros[n];
+                return  true;
                 
             }
             n++;
         }
-        return "Não Cadastrado";
+        return false;
 
     }
 }
