@@ -1,8 +1,13 @@
 package com.trabalho.resources.entidades;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+import com.trabalho.controller.Cadastros;
 import com.trabalho.resources.estruturas.LS_Encadeada;
 
-public class Camera {
+public class Camera extends Cadastros{
     /*   
     Ip
     Latitude e Longitude
@@ -15,11 +20,15 @@ public class Camera {
     private String imagePath;
     private LS_Encadeada lista_camera = new LS_Encadeada();
 
-    public Camera(String ip, String latitude, String longitude, String imagePath) {
+    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("ddMMyyyy_HHmmss");
+
+
+    public Camera(String ip, String latitude, String longitude) {
+        LocalDateTime h = LocalDateTime.now();
         this.ip = ip;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.imagePath = imagePath;
+        this.imagePath = "C:\\Users\\UFRB\\OneDrive\\imagens\\"+ busca_ip(ip)+ h.format(myFormatObj)+".jpg";
 
         Lista_Camera();
     }

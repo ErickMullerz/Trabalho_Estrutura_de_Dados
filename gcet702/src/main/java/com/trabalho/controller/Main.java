@@ -32,7 +32,7 @@ public class Main {
         int n = 0;
         
         Pessoa p = new Pessoa("Alice","566161",TipoPessoa.DISCENTE);
-        Camera c = new Camera("000000000000", "12°39'50.4''S", "39°05'59.8''W", "C:\\Users\\UFRB\\OneDrive\\imagens\\Cam");
+        Camera c = new Camera("000000000000", "12°39'50.4''S", "39°05'59.8''W");
         Carro car = new Carro("X4861515", false);
         Carro carro = new Carro("QWE3I63");
         Evento e = new Evento(false, hour);
@@ -58,10 +58,7 @@ public class Main {
         arvore.exibirposordem(arvore.raiz);
         System.out.println();
 
-        
-        
-       
-       
+     
       
     }
   }
