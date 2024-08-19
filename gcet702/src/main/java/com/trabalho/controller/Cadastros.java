@@ -191,7 +191,9 @@ public class Cadastros {
         while(n<carros.length){
             if(carros[n]==placa){
                 return  carros[n];
+                
             }
+            n++;
         }
         return "Não Cadastrado";
 
