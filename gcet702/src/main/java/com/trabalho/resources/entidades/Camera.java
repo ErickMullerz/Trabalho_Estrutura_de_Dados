@@ -28,7 +28,7 @@ public class Camera extends Cadastros{
         this.ip = ip;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.imagePath = "C:\\Users\\UFRB\\OneDrive\\imagens\\"+ busca_ip(ip)+ h.format(myFormatObj)+".jpg";
+        this.imagePath = "C:\\Users\\UFRB\\OneDrive\\imagens\\"+ busca_latitude(latitude)+"_"+ h.format(myFormatObj)+".jpg";
 
         Lista_Camera();
     }

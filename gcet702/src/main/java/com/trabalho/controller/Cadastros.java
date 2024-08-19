@@ -207,7 +207,7 @@ public class Cadastros {
 
     }
 
-    public String busca_ip(String ip){
+    public String busca_latitude(String ip){
         int n = 0;
         while(n<cameras.length){
             if(cameras[n][1]==ip){
