@@ -71,7 +71,7 @@ public class Arvore_Avl {
             novo.dir = null;
             aux = novo;
         } 
-        else if (num.getMinute() < aux.num) 
+        else if (num.getSecond() < aux.num) 
         {
             aux.esq = inserir(aux.esq,evento, num, list,hash,list_carro);
             if (aux.esq.altd > aux.esq.alte) {
@@ -110,7 +110,7 @@ public class Arvore_Avl {
              novo.dir = null;
              aux = novo;
          } 
-         else if (num.getMinute() < aux.num) 
+         else if (num.getSecond() < aux.num) 
          {
              aux.esq = inserir_nome(aux.esq,evento, num, list,hash);
              if (aux.esq.altd > aux.esq.alte) {
