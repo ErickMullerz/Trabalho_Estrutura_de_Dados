@@ -40,7 +40,7 @@ public class Main {
 
         while(n<10){
             
-          arvore.raiz = arvore.inserir(arvore.raiz,e.getEvento(),e.getHorario() ,c.getLista_Camera(),p_nome.getHash_pessoa());
+          arvore.raiz = arvore.inserir(arvore.raiz,e.getEvento(),e.getHorario() ,c.getLista_Camera(),p_nome.getHash_pessoa(),carro.getLista_carro());
             
           n++; 
         }
@@ -61,4 +61,5 @@ public class Main {
      
       
     }
+
   }
